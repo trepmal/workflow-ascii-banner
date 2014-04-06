@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>kdl-ascii-banner</string>
+	<key>connections</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0F948F60-E834-4DEB-B452-CF6E0F900EA3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>291CCBD7-E538-407E-8C62-B8372F19940E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FBD7F043-0AF7-492E-A48F-8DCD30B4711A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>5251B9CF-C456-43B6-9C77-ED506401EE44</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>291CCBD7-E538-407E-8C62-B8372F19940E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kailey Lampert</string>
+	<key>description</key>
+	<string>Generate ASCII Banners</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>ASCII Banner</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>0F948F60-E834-4DEB-B452-CF6E0F900EA3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>$style = 'big';
+
+include('letters.php');
+
+$input = "{query}";
+
+$word = str_split( $input, 1 );
+
+$ascii = '';
+
+$lines = explode( "\n", $letter['A'] );
+foreach( $lines as $k =&gt; $line ) {
+	foreach( $word as $l ) {
+		$_l = explode( "\n", $letter[ strtoupper( $l ) ] );
+		$ascii .= $_l[$k];
+	}
+	$ascii = rtrim( $ascii ) . "\n";
+}
+
+echo $ascii;</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ascii</string>
+				<key>subtext</key>
+				<string>ASCII big</string>
+				<key>text</key>
+				<string>ASCII Big</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>$style = 'small';
+
+include('letters.php');
+
+$input = "{query}";
+
+$word = str_split( $input, 1 );
+
+$ascii = '';
+
+$lines = explode( "\n", $letter['A'] );
+foreach( $lines as $k =&gt; $line ) {
+	foreach( $word as $l ) {
+		$_l = explode( "\n", $letter[ strtoupper( $l ) ] );
+		$ascii .= $_l[$k];
+	}
+	$ascii = rtrim( $ascii ) . "\n";
+}
+
+echo $ascii;</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>291CCBD7-E538-407E-8C62-B8372F19940E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ascii</string>
+				<key>subtext</key>
+				<string>ASCII small</string>
+				<key>text</key>
+				<string>ASCII Small</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>5251B9CF-C456-43B6-9C77-ED506401EE44</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>FBD7F043-0AF7-492E-A48F-8DCD30B4711A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Supports: A-Z 0-9 ? ! . ,
+
+Commas are funky. http://bit.ly/1cxu9LN</string>
+	<key>uidata</key>
+	<dict>
+		<key>0F948F60-E834-4DEB-B452-CF6E0F900EA3</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>291CCBD7-E538-407E-8C62-B8372F19940E</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>5251B9CF-C456-43B6-9C77-ED506401EE44</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>FBD7F043-0AF7-492E-A48F-8DCD30B4711A</key>
+		<dict>
+			<key>ypos</key>
+			<real>210</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>trepmal.com/alfredapp</string>
+</dict>
+</plist>
